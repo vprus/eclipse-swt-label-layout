@@ -1,4 +1,5 @@
-swt-label-layoyt
-================
+Eclipse SWT Label Layout
+========================
 
-Improvements to label layout in Eclipse SWT.
+This project demonstrates what it takes to put a label
+with long text inside some dialog.
