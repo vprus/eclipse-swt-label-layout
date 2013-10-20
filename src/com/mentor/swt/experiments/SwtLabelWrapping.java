@@ -75,8 +75,12 @@ public class SwtLabelWrapping {
 					// No specific width request yet.
 										
 					GC gc = new GC(this);
-					TextLayout layout = new TextLayout(this.getDisplay());
 					FontMetrics fm = gc.getFontMetrics();
+					int averageCharWidth = fm.getAverageCharWidth();
+					gc.dispose();
+					
+					TextLayout layout = new TextLayout(this.getDisplay());
+					
 					
 					Rectangle bounds;
 					layout.setText(getText());
@@ -85,7 +89,7 @@ public class SwtLabelWrapping {
 					{
 						// The simple way is to force the label into readable number of characters,
 						// horizontally. What's readable is subjective, we'll use 65 characters. 
-						int w = 65 * fm.getAverageCharWidth();
+						int w = 65 * averageCharWidth;
 						layout.setWidth(w);							
 						bounds = layout.getBounds();
 					}
@@ -97,7 +101,7 @@ public class SwtLabelWrapping {
 						// - Block of 1 to 3 lines wider that 40 'average' characters, and
 						// - Block of 1 line wider that 20 'average' characters.
 						bounds = layout.getBounds();
-						int w = 80 * fm.getAverageCharWidth();
+						int w = 80 * averageCharWidth;
 					
 						if (layout.getLineCount() < 4 && bounds.width > w/2)
 						{
