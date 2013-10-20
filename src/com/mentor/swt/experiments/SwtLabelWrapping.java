@@ -35,7 +35,7 @@ public class SwtLabelWrapping {
 		REDUCED_WIDTH, // Return width of 1 
 		PROPORTIONAL   // Try to make rectangle of reasonable proportions 
 	};
-	static LabelHint labelHint = LabelHint.REDUCED_WIDTH;
+	static LabelHint labelHint = LabelHint.PROPORTIONAL;
 	
 	// For PROPORTIONAL mode, use heuristic from Qt library.
 	static boolean USE_QT_HEURISTIC = true;
